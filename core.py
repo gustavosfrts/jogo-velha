@@ -41,9 +41,12 @@ jogadaPlayer = input("Escolha as coordenadas onde deseja jogar:")
 jogadaPlayer = jogadaPlayer.replace(" ","") #Retirar possiveis espaços da coordenada
 jogadaPlayer = jogadaPlayer.lower() #Parametrizar as coordenadas
 
-while(functions.verificadorJogada(jogadaPlayer) == False):
+#Verifica se as coordenadas preenchidas pelo jogador é valida
+while(functions.verificadorCoordenada(jogadaPlayer) == False):
     jogadaPlayer = input("Coordenadas incorretas! Por favor, preencha corretamente as coordenadas onde deseja jogar:")
     jogadaPlayer = jogadaPlayer.replace(" ","") #Retirar possiveis espaços da coordenada
     jogadaPlayer = jogadaPlayer.lower() #Parametrizar as coordenadas
+
+#Verifica se a coordenada está vazio
 
 os.system("pause")
