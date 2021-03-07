@@ -23,22 +23,28 @@ if(ops == 1):
 if(ops == 2):
     print("Teste1") """
 
-#Imprimir tabuleiro
-functions.imprimirTabuleiro(tabuleiro)
+contadorjogadas = 0
 
-print("\n \n")
+while(contadorjogadas < 9):
+    #Imprimir tabuleiro
+    functions.imprimirTabuleiro(tabuleiro)
+    if(contadorjogadas % 2 == 0):    
+        print("\n \n")
+        jogadaPlayer = input("Escolha as coordenadas onde deseja jogar:")
+        jogadaPlayer = jogadaPlayer.replace(" ","") #Retirar possiveis espaços da coordenada
+        jogadaPlayer = jogadaPlayer.lower() #Parametrizar as coordenadas
+        #Verifica se as coordenadas preenchidas pelo jogador é valida
+        while(functions.verificadorCoordenada(jogadaPlayer) == False):
+            jogadaPlayer = input("Coordenadas incorretas! Por favor, preencha corretamente as coordenadas onde deseja jogar:")
+            jogadaPlayer = jogadaPlayer.replace(" ","") #Retirar possiveis espaços da coordenada
+            jogadaPlayer = jogadaPlayer.lower() #Parametrizar as coordenadas
 
-jogadaPlayer = input("Escolha as coordenadas onde deseja jogar:")
-jogadaPlayer = jogadaPlayer.replace(" ","") #Retirar possiveis espaços da coordenada
-jogadaPlayer = jogadaPlayer.lower() #Parametrizar as coordenadas
-
-#Verifica se as coordenadas preenchidas pelo jogador é valida
-while(functions.verificadorCoordenada(jogadaPlayer) == False):
-    jogadaPlayer = input("Coordenadas incorretas! Por favor, preencha corretamente as coordenadas onde deseja jogar:")
-    jogadaPlayer = jogadaPlayer.replace(" ","") #Retirar possiveis espaços da coordenada
-    jogadaPlayer = jogadaPlayer.lower() #Parametrizar as coordenadas
-
-print(functions.jogadaPlayer(tabuleiro,jogadaPlayer))
-functions.imprimirTabuleiro(tabuleiro)
+        functions.jogadaPlayer(tabuleiro,jogadaPlayer) #Player joga
+        print("\n")
+    else:
+        functions.jogadaBot(tabuleiro) #Bot joga(de maneira completamente randomica, sem inteligencia)
+        print("O bot está pensando no que jogar...")
+        print("\n")
+    contadorjogadas += 1
 
 os.system("pause")

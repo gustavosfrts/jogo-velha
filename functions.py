@@ -1,5 +1,6 @@
 import random
 import os
+import time
 
 def verificadorCoordenada(string):
     #Verifica se coordenada é valida
@@ -24,22 +25,26 @@ def conversao(string):
         coluna = '3'
         return coluna
 
+#Realiza o registro de jogada do player no tabuleiro
 def jogadaPlayer(matriz,coordenadas):
     coluna = int(conversao(coordenadas))
     linha = int(coordenadas[1])
     matriz[linha][coluna] = 'X'
     return matriz
 
-def jogar(matriz):
+#Realiza a jogada do bot no tabuleiro(de maneira aleatoria)
+def jogadaBot(matriz):
     linha = random.randint(1,3)
     coluna = random.randint(1,3)
     
-    while (matriz[linha][coluna] == '_' ):
+    while (matriz[linha][coluna] != '_' ):
         linha = random.randint(1,3)
         coluna = random.randint(1,3)
     
     matriz[linha][coluna] = 'O'
+    return matriz
 
+#Imprime o tabuleiro
 def imprimirTabuleiro(matriz):
     i = 0
     while(i<4):
