@@ -24,16 +24,7 @@ if(ops == 2):
     print("Teste1") """
 
 #Imprimir tabuleiro
-i = 0
-while(i<4):
-    i2 = 0
-    while(i2 <4):
-        if i2 == 3:
-            print(tabuleiro[i][i2])
-        else:
-            print(tabuleiro[i][i2], end=' ')
-        i2 += 1
-    i += 1
+functions.imprimirTabuleiro(tabuleiro)
 
 print("\n \n")
 
@@ -47,6 +38,7 @@ while(functions.verificadorCoordenada(jogadaPlayer) == False):
     jogadaPlayer = jogadaPlayer.replace(" ","") #Retirar possiveis espaços da coordenada
     jogadaPlayer = jogadaPlayer.lower() #Parametrizar as coordenadas
 
-#Verifica se a coordenada está vazio
+print(functions.jogadaPlayer(tabuleiro,jogadaPlayer))
+functions.imprimirTabuleiro(tabuleiro)
 
 os.system("pause")
