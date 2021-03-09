@@ -53,5 +53,8 @@ while(contadorjogadas < 9):
             break
 
     contadorjogadas += 1
+    if(contadorjogadas == 9):
+        functions.imprimirTabuleiro(tabuleiro)
+        print("\nVelha!\n")
 
 os.system("pause")
