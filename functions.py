@@ -1,12 +1,16 @@
 import random
 import os
-import time
 
-def verificadorCoordenada(string):
+def verificadorCoordenada(string,matriz):
     #Verifica se coordenada é valida
     if(string[0] == 'a' or string[0] == 'b' or string[0] == 'c'):
         if(string [1] == '1' or string [1] == '2' or string [1] == '3'):
-            return True
+            coluna = int(conversao(string))
+            linha = int(string[1])
+            if(matriz[linha][coluna] == '_'):
+                return True
+            else:
+                return False
         else:
             return False
     else:
@@ -57,3 +61,104 @@ def imprimirTabuleiro(matriz):
             i2 += 1
         i += 1
     return 'Null'
+
+def verificaVitoria(matriz):
+    #VERIFICADOR VITORIA PLAYER
+    #verifica coluna A - Player
+    if(matriz[1][1] == 'X'):
+        if(matriz[2][1] == 'X'):
+            if(matriz[3][1] == 'X'):
+                print("Parabéns você venceu do bot!.")
+                return True
+    #verifica coluna B - Player
+    if(matriz[1][2] == 'X'):
+        if(matriz[2][2] == 'X'):
+            if(matriz[3][2] == 'X'):
+                print("Parabéns você venceu do bot!.")
+                return True
+    #verifica coluna C - Player
+    if(matriz[1][3] == 'X'):
+        if(matriz[2][3] == 'X'):
+            if(matriz[3][3] == 'X'):
+                print("Parabéns você venceu do bot!.")
+                return True    
+    #verifica linha 1 - Player
+    if(matriz[1][1] == 'X'):
+        if(matriz[1][2] == 'X'):
+            if(matriz[1][3] == 'X'):
+                print("Parabéns você venceu do bot!.")
+                return True
+    #verifica linha 2 - Player
+    if(matriz[2][1] == 'X'):
+        if(matriz[2][2] == 'X'):
+            if(matriz[2][3] == 'X'):
+                print("Parabéns você venceu do bot!.")
+                return True
+    #verifica linha 3 - Player
+    if(matriz[3][1] == 'X'):
+        if(matriz[3][2] == 'X'):
+            if(matriz[3][3] == 'X'):
+                print("Parabéns você venceu do bot!.")
+                return True
+    #verifica diagonal A1 B2 C3 - Player
+    if(matriz[1][1] == 'X'):
+        if(matriz[2][2] == 'X'):
+            if(matriz[3][3] == 'X'):
+                print("Parabéns você venceu do bot!.")
+                return True
+    #verifica diagonal C1 B2 A3 - Player
+    if(matriz[1][3] == 'X'):
+        if(matriz[2][2] == 'X'):
+            if(matriz[3][1] == 'X'):
+                print("Parabéns você venceu do bot!.")
+                return True
+
+    #VERIFICADOR VITORIA BOT
+    #verifica coluna A - Bot
+    if(matriz[1][1] == 'O'):
+        if(matriz[2][1] == 'O'):
+            if(matriz[3][1] == 'O'):
+                print("Infelizmente você perdeu para o bot! Tente novamente abrindo e fechando o jogo.")
+                return True
+    #verifica coluna B - Bot
+    if(matriz[1][2] == 'O'):
+        if(matriz[2][2] == 'O'):
+            if(matriz[3][2] == 'O'):
+                print("Infelizmente você perdeu para o bot! Tente novamente abrindo e fechando o jogo.")
+                return True
+    #verifica coluna C - Bot
+    if(matriz[1][3] == 'O'):
+        if(matriz[2][3] == 'O'):
+            if(matriz[3][3] == 'O'):
+                print("Infelizmente você perdeu para o bot! Tente novamente abrindo e fechando o jogo.")
+                return True    
+    #verifica linha 1 - Bot
+    if(matriz[1][1] == 'O'):
+        if(matriz[1][2] == 'O'):
+            if(matriz[1][3] == 'O'):
+                print("Infelizmente você perdeu para o bot! Tente novamente abrindo e fechando o jogo.")
+                return True
+    #verifica linha 2 - Bot
+    if(matriz[2][1] == 'O'):
+        if(matriz[2][2] == 'O'):
+            if(matriz[2][3] == 'O'):
+                print("Infelizmente você perdeu para o bot! Tente novamente abrindo e fechando o jogo.")
+                return True
+    #verifica linha 3 - Bot
+    if(matriz[3][1] == 'O'):
+        if(matriz[3][2] == 'O'):
+            if(matriz[3][3] == 'O'):
+                print("Infelizmente você perdeu para o bot! Tente novamente abrindo e fechando o jogo.")
+                return True
+    #verifica diagonal A1 B2 C3 - Bot
+    if(matriz[1][1] == 'O'):
+        if(matriz[2][2] == 'O'):
+            if(matriz[3][3] == 'O'):
+                print("Infelizmente você perdeu para o bot! Tente novamente abrindo e fechando o jogo.")
+                return True
+    #verifica diagonal C1 B2 A3 - Bot
+    if(matriz[1][3] == 'O'):
+        if(matriz[2][2] == 'O'):
+            if(matriz[3][1] == 'O'):
+                print("Infelizmente você perdeu para o bot! Tente novamente abrindo e fechando o jogo.")
+                return True

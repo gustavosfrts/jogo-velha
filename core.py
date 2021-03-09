@@ -34,17 +34,24 @@ while(contadorjogadas < 9):
         jogadaPlayer = jogadaPlayer.replace(" ","") #Retirar possiveis espaços da coordenada
         jogadaPlayer = jogadaPlayer.lower() #Parametrizar as coordenadas
         #Verifica se as coordenadas preenchidas pelo jogador é valida
-        while(functions.verificadorCoordenada(jogadaPlayer) == False):
+        while(functions.verificadorCoordenada(jogadaPlayer,tabuleiro) == False):
             jogadaPlayer = input("Coordenadas incorretas! Por favor, preencha corretamente as coordenadas onde deseja jogar:")
             jogadaPlayer = jogadaPlayer.replace(" ","") #Retirar possiveis espaços da coordenada
             jogadaPlayer = jogadaPlayer.lower() #Parametrizar as coordenadas
 
         functions.jogadaPlayer(tabuleiro,jogadaPlayer) #Player joga
         print("\n")
+        if(functions.verificaVitoria(tabuleiro)):
+            functions.imprimirTabuleiro(tabuleiro)
+            break
     else:
         functions.jogadaBot(tabuleiro) #Bot joga(de maneira completamente randomica, sem inteligencia)
         print("O bot está pensando no que jogar...")
         print("\n")
+        if(functions.verificaVitoria(tabuleiro)):
+            functions.imprimirTabuleiro(tabuleiro)
+            break
+
     contadorjogadas += 1
 
 os.system("pause")
